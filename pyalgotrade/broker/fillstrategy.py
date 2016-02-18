@@ -326,9 +326,9 @@ class DefaultStrategy(FillStrategy):
 
         # Unless its a fill-on-close order, use the open price.
         if order.getFillOnClose():
-            price = bar.getClose(broker_.getUseAdjustedValues())
+            price = bar.getClose(broker_.getUseAdjustedValues()) * 0.3
         else:
-            price = bar.getOpen(broker_.getUseAdjustedValues())
+            price = bar.getOpen(broker_.getUseAdjustedValues())  * 0.3
         assert price is not None
 
         # Don't slip prices when the bar represents the trading activity of a single trade.
